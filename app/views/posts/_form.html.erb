@@ -1,0 +1,32 @@
+<%= form_with(model: post) do |form| %>
+  <% if post.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+      <ul>
+        <% post.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field mb-3">
+    <%= form.label :name, :class => "form-label" %>
+    <%= form.text_field :name, :class => "form-control" %>
+  </div>
+
+  <div class="field mb-3">
+    <%= form.label :title, :class => "form-label" %>
+    <%= form.text_field :title, :class => "form-control" %>
+  </div>
+
+  <div class="field mb-3">
+    <%= form.label :content, :class => "form-label" %>
+    <%= form.text_area :content, :class => "form-control" %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit class: "btn btn-primary btn-sm" %>
+  </div>
+<% end %>
